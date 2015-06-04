@@ -1,0 +1,211 @@
+#
+# Wavefront material file: c:\documents and settings\cdtwigg\desktop\sponza\sponza.mtl
+#
+# Converted by the PolyTrans geometry converter from Okino Computer Graphics, Inc.
+# Date/time of export: 05/04/2006 11:37:18
+#
+# Bounding box of geometry = (-685.148,-35.6964,-307.028) to (685.718,616.272,307.145).
+
+newmtl default
+	Ns 32
+	d 1
+	illum 2
+	Kd 0.4 0.4 0.4
+	Ks 0.7 0.7 0.7
+	Ka 0.3 0.3 0.3
+
+newmtl sp_00_luk_mali
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.745098 0.709804 0.67451
+	Ks 0 0 0
+	Ka 1 0.952632 0.905263
+	map_Kd sp_luk.bmp
+	map_bump -bm 0.0625 sp_luk.bmp
+
+newmtl sp_00_luk_mali__2
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.745098 0.709804 0.67451
+	Ks 0 0 0
+	Ka 1 0.952632 0.905263
+	map_Kd 01_st_kp.bmp
+	map_bump -bm 0.0625 sp_luk.bmp
+
+newmtl sp_00_pod
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.627451 0.572549 0.560784
+	Ks 0 0 0
+	Ka 1 0.9125 0.89375
+	map_Kd kamen.bmp
+	map_bump -bm 0.0625 kamen.bmp
+
+newmtl sp_00_prozor__sub_
+	Ns 21
+	d 1
+	illum 2
+	Kd 1 1 1
+	Ks 0 0 0
+	Ka 1 1 1
+	map_Kd prozor1.bmp
+	map_bump -bm 0.624375 prozor1.bmp
+
+newmtl sp_00_stup
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.737255 0.709804 0.670588
+	Ks 0 0 0
+	Ka 1 0.962766 0.909574
+	map_Kd 01_stub.bmp
+	map_bump -bm 0.0625 01_stub.bmp
+
+newmtl sp_00_svod
+	Ns 0
+	d 1
+	illum 2
+	Kd 0.941177 0.866667 0.737255
+	Ks 0.0340392 0.0323137 0.0293333
+	Ka 0.145098 0.145098 0.145098
+
+newmtl sp_00_vrata_kock__sub_
+	Ns 5
+	d 1
+	illum 2
+	Kd 0.784314 0.784314 0.784314
+	Ks 0 0 0
+	Ka 1 1 1
+	map_Kd vrata_ko.bmp
+	map_bump -bm 0.0625 vrata_ko.bmp
+
+newmtl sp_00_vrata_krug__sub_
+	Ns 5
+	d 1
+	illum 2
+	Kd 0.784314 0.784314 0.784314
+	Ks 0 0 0
+	Ka 1 1 1
+	map_Kd vrata_kr.bmp
+	map_bump -bm 0.0625 vrata_kr.bmp
+
+newmtl sp_00_zid__sub_
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.627451 0.572549 0.560784
+	Ks 0 0 0
+	Ka 1 0.9125 0.89375
+	map_Kd kamen.bmp
+	map_bump -bm 0.0625 kamen.bmp
+
+newmtl sp_01_luk_a
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.745098 0.709804 0.67451
+	Ks 0 0 0
+	Ka 1 0.952632 0.905263
+	map_Kd sp_luk.bmp
+	map_bump -bm 0.0625 sp_luk.bmp
+
+newmtl sp_01_stub
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.737255 0.709804 0.670588
+	Ks 0 0 0
+	Ka 1 0.962766 0.909574
+	map_Kd 01_stub.bmp
+	map_bump -bm 0.0625 01_stub.bmp
+
+newmtl sp_01_stub_baza
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.8 0.784314 0.74902
+	Ks 0 0 0
+	Ka 1 0.980392 0.936274
+	map_Kd 01_s_ba.bmp
+	map_bump -bm 0.625 01_s_ba.bmp
+
+newmtl sp_01_stub_baza_
+	Ns 5
+	d 1
+	illum 2
+	Kd 0.784314 0.784314 0.784314
+	Ks 0 0 0
+	Ka 0 0 0
+
+newmtl sp_01_stub_kut
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.737255 0.709804 0.670588
+	Ks 0 0 0
+	Ka 1 0.962766 0.909574
+	map_Kd 01_stub.bmp
+	map_bump -bm 0.0625 01_stub.bmp
+
+newmtl sp_01_stup
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.827451 0.8 0.768628
+	Ks 0 0 0
+	Ka 1 0.966825 0.92891
+	map_Kd x01_st.bmp
+
+newmtl sp_01_stup_baza
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.8 0.784314 0.74902
+	Ks 0 0 0
+	Ka 1 0.980392 0.936274
+	map_Kd 01_s_ba.bmp
+	map_bump -bm 0.625 01_s_ba.bmp
+
+newmtl sp_02_reljef
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.529412 0.498039 0.490196
+	Ks 0 0 0
+	Ka 1 0.940741 0.925926
+	map_Kd reljef.bmp
+	map_bump -bm 0.625 reljef.bmp
+
+newmtl sp_svod_kapitel
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.713726 0.705882 0.658824
+	Ks 0 0 0
+	Ka 1 0.989011 0.923077
+	map_Kd 00_skap.bmp
+	map_bump -bm 0.625 00_skap.bmp
+
+newmtl sp_vijenac
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.713726 0.705882 0.658824
+	Ks 0 0 0
+	Ka 1 0.989011 0.923077
+	map_Kd 00_skap.bmp
+	map_bump -bm 0.1875 00_skap.bmp
+
+newmtl sp_zid_vani
+	Ns 21
+	d 1
+	illum 2
+	Kd 0.627451 0.572549 0.560784
+	Ks 0 0 0
+	Ka 1 0.9125 0.89375
+	map_Kd kamen.bmp
+	map_bump -bm 0.0625 kamen.bmp
+

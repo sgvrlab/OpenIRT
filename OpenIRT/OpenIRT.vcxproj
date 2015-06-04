@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugEmu|Win32">
+      <Configuration>DebugEmu</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugEmu|x64">
+      <Configuration>DebugEmu</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FC88623F-B3FC-4C32-AB3B-DC620AC807C9}</ProjectGuid>
+    <RootNamespace>OpenIRT</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>OpenIRT</ProjectName>
+    <CudaToolkitCustomDir>
+    </CudaToolkitCustomDir>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 5.5.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)lib\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)$(Configuration)\</IntDir>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(NVSDKCOMPUTE_ROOT)\C\common\inc;./;./CUDA/shrUtils;;$(CUDA_PATH)\include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(NVSDKCOMPUTE_ROOT)\C\common\inc;./;./CUDA/shrUtils;;$(CUDA_PATH)\include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(NVSDKCOMPUTE_ROOT)\C\common\inc;./;./CUDA/shrUtils</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(NVSDKCOMPUTE_ROOT)\C\common\inc;./;./CUDA/shrUtils</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(CUDA_PATH)\include</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./;./include;../Common/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./;./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OpenMPSupport>false</OpenMPSupport>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+    </ClCompile>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalCompilerOptions>
+      </AdditionalCompilerOptions>
+      <AdditionalOptions>-Xcompiler "/wd 4819" %(AdditionalOptions)</AdditionalOptions>
+      <Include>./;./include</Include>
+    </CudaCompile>
+    <Lib>
+      <AdditionalDependencies>tinyxml.lib;cudart.lib;glew32.lib;DevIL.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>lib;$(CUDA_PATH)\lib\$(PlatformName);</AdditionalLibraryDirectories>
+    </Lib>
+    <CudaLink>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./;./include;../Common/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugEmu|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./;./include;../Common/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>./;./include;../Common/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>./;./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OpenMPSupport>true</OpenMPSupport>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>tinyxml.lib;cudart.lib;glew32.lib;DevIL.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib;$(CUDA_PATH)\lib\$(PlatformName);</AdditionalLibraryDirectories>
+    </Lib>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalCompilerOptions>
+      </AdditionalCompilerOptions>
+      <AdditionalOptions>-Xcompiler "/wd 4819" %(AdditionalOptions)</AdditionalOptions>
+      <Include>./;./include</Include>
+    </CudaCompile>
+    <CudaLink />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BitmapTexture.cpp" />
+    <ClCompile Include="src\BVHBuilder.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\CPURayTracer.cpp" />
+    <ClCompile Include="src\CUDAPathTracer.cpp" />
+    <ClCompile Include="src\CUDAPhotonMapping.cpp" />
+    <ClCompile Include="src\CUDARayTracer.cpp" />
+    <ClCompile Include="src\FileMapper.cpp" />
+    <ClCompile Include="src\GBufferFilter.cpp" />
+    <ClCompile Include="src\GeometryConverter.cpp" />
+    <ClCompile Include="src\GLAdapter.cpp" />
+    <ClCompile Include="src\GLDebugging.cpp" />
+    <ClCompile Include="src\handler.cpp" />
+    <ClCompile Include="src\HCCMesh.cpp" />
+    <ClCompile Include="src\HCCMesh2.cpp" />
+    <ClCompile Include="src\HitPointInfo.cpp" />
+    <ClCompile Include="src\Image.cpp" />
+    <ClCompile Include="src\ImageIL.cpp" />
+    <ClCompile Include="src\ImageFilter.cpp" />
+    <ClCompile Include="src\LRUManager.cpp" />
+    <ClCompile Include="src\Material.cpp" />
+    <ClCompile Include="src\Matrix.cpp" />
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\OBJLoader.cpp" />
+    <ClCompile Include="src\Octree.cpp" />
+    <ClCompile Include="src\OOCVoxelManager.cpp" />
+    <ClCompile Include="src\OpenGLModel.cpp" />
+    <ClCompile Include="src\OpenIRT.cpp" />
+    <ClCompile Include="src\PhotonOctree.cpp" />
+    <ClCompile Include="src\ply.cpp" />
+    <ClCompile Include="src\PLYLoader.cpp" />
+    <ClCompile Include="src\Saliency.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\SceneNode.cpp" />
+    <ClCompile Include="src\shaders.cpp" />
+    <ClCompile Include="src\SimpleRasterizer.cpp" />
+    <ClCompile Include="src\stopwatch.cpp" />
+    <ClCompile Include="src\stopwatch_win.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\TReX.cpp" />
+    <ClCompile Include="src\Voxel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\asm_intersect_onetri_pluecker.h" />
+    <ClInclude Include="include\BitmapTexture.h" />
+    <ClInclude Include="include\BV.h" />
+    <ClInclude Include="include\BVHBuilder.h" />
+    <ClInclude Include="include\BVHNode.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\CommonHeaders.h" />
+    <ClInclude Include="include\CommonOptions.h" />
+    <ClInclude Include="include\controls.h" />
+    <ClInclude Include="include\CPURayTracer.h" />
+    <ClInclude Include="include\CUDAPathTracer.h" />
+    <ClInclude Include="include\CUDAPhotonMapping.h" />
+    <ClInclude Include="include\CUDARayTracer.h" />
+    <ClInclude Include="include\defines.h" />
+    <ClInclude Include="include\Emitter.h" />
+    <ClInclude Include="include\Face.h" />
+    <ClInclude Include="include\FileMapper.h" />
+    <ClInclude Include="include\Files.h" />
+    <ClInclude Include="include\FrustumCulling.h" />
+    <ClInclude Include="include\GBufferFilter.h" />
+    <ClInclude Include="include\GeometryConverter.h" />
+    <ClInclude Include="include\GLAdapter.h" />
+    <ClInclude Include="include\GLDebugging.h" />
+    <ClInclude Include="include\GroupInfo.h" />
+    <ClInclude Include="include\handler.h" />
+    <ClInclude Include="include\HCCMesh.h" />
+    <ClInclude Include="include\HCCMesh2.h" />
+    <ClInclude Include="include\HitPointInfo.h" />
+    <ClInclude Include="include\HSaliency.h" />
+    <ClInclude Include="include\Image.h" />
+    <ClInclude Include="include\ImageFilter.h" />
+    <ClInclude Include="include\ImageIL.h" />
+    <ClInclude Include="include\LRUElem.h" />
+    <ClInclude Include="include\LRUManager.h" />
+    <ClInclude Include="include\Material.h" />
+    <ClInclude Include="include\Mathdefines.h" />
+    <ClInclude Include="include\Matrix.h" />
+    <ClInclude Include="include\MemoryCleaner.h" />
+    <ClInclude Include="include\Model.h" />
+    <ClInclude Include="include\OBJLoader.h" />
+    <ClInclude Include="include\Octree.h" />
+    <ClInclude Include="include\OOCVoxelManager.h" />
+    <ClInclude Include="include\OpenGLModel.h" />
+    <ClInclude Include="include\OpenIRT.h" />
+    <ClInclude Include="include\Parallelogram.h" />
+    <ClInclude Include="include\Photon.h" />
+    <ClInclude Include="include\PhotonOctree.h" />
+    <ClInclude Include="include\Plane.h" />
+    <ClInclude Include="include\ply.h" />
+    <ClInclude Include="include\PLYLoader.h" />
+    <ClInclude Include="include\random.h" />
+    <ClInclude Include="include\Ray.h" />
+    <ClInclude Include="include\RayPacket.h" />
+    <ClInclude Include="include\Renderer.h" />
+    <ClInclude Include="include\RGB.h" />
+    <ClInclude Include="include\Saliency.h" />
+    <ClInclude Include="include\Sampler.h" />
+    <ClInclude Include="include\Scene.h" />
+    <ClInclude Include="include\SceneNode.h" />
+    <ClInclude Include="include\select.h" />
+    <ClInclude Include="include\SIMDRay.h" />
+    <ClInclude Include="include\SimpleRasterizer.h" />
+    <ClInclude Include="include\stopwatch.h" />
+    <ClInclude Include="include\stopwatch_base.h" />
+    <ClInclude Include="include\stopwatch_linux.h" />
+    <ClInclude Include="include\stopwatch_win.h" />
+    <ClInclude Include="include\TextureManager.h" />
+    <ClInclude Include="include\tinystr.h" />
+    <ClInclude Include="include\tinyxml.h" />
+    <ClInclude Include="include\TReX.h" />
+    <ClInclude Include="include\Triangle.h" />
+    <ClInclude Include="include\updateSIMDHitpoints.h" />
+    <ClInclude Include="include\Vector2.h" />
+    <ClInclude Include="include\Vector3.h" />
+    <ClInclude Include="include\Vector4.h" />
+    <ClInclude Include="include\Vertex.h" />
+    <ClInclude Include="include\Voxel.h" />
+    <ClInclude Include="include\Voxelize.h" />
+    <ClInclude Include="include\WinLock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\stopwatch_base.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\CUDA\CUDAFilter.cu" />
+    <CudaCompile Include="src\CUDA\CUDAPathTracer.cu" />
+    <CudaCompile Include="src\CUDA\CUDAPhotonMapping.cu" />
+    <CudaCompile Include="src\CUDA\CUDARayTracer.cu" />
+    <CudaCompile Include="src\CUDA\CUDATReX.cu" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 5.5.targets" />
+  </ImportGroup>
+</Project>

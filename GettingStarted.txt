@@ -1,0 +1,231 @@
+[Introduction]
+OpenIRT (Interactive Ray-Tracer) is a rendering SDK which supports:
+ - Path tracing
+ - Photon mapping
+ - T-ReX (http://sglab.kaist.ac.kr/T-ReX/)
+ - Ray tracing
+ - Rasterization (Currently, OpenGL based flat shading)
+
+
+[Requirements]
+ - CUDA-capable GPU (compute capability must be 1.2 or higher)
+ - Microsoft Windows, 64 bit (Linux will be supported soon)
+ - NVIDIA CUDA Toolkit 3.0 or higher (5.5 is recommended)
+
+
+[How to build]
+To build your own project using OpenIRT, perform the following steps:
+ 1. Setup the platform of your project to x64 (For VS2010 (Microsoft Visual Studio 2010), see Build->Configuration Manager).
+ 2. Add "OpenIRT\include" to the include directories (For VS2010, Property Pages->Configuration Properties->C/C++->General->Additional Include Directories).
+ 3. Add "OpenIRT\lib" to the library directories (For VS2010, Property Pages->Configuration Properties->Linker->General->Additional Library Directories).
+ 4. Add "OpenIRT.lib" (or OpenIRTd.lib for debug) to the library list (For VS2010, Property Pages->Configuration Properties->Linker->Input->Additional Dependencies).
+
+
+[How to run (with simple example)]
+ 1. Run "sample_build.bat" in "OpenIRT" directory. "sponza.obj.ooc" directory and related files will be generated.
+ 2. Add following code sample in your project
+
+	#include "OpenIRT.h"
+	#include "ImageIL.h"
+
+	void run(void)
+	{
+		int width = 512, height = 512;
+
+		OpenIRT *renderer = OpenIRT::getSingletonPtr();
+		renderer->pushCamera("Camera1", 
+				220.0f, 380.0f, -10.0f, 
+				0.0f, 380.0f, -10.0f,
+				0.0f, 1.0f, 0.0f,
+				72.0f, 1.0f, 1.0f, 100000.0f);
+		renderer->loadScene("..\\media\\sponza.scene");
+		renderer->init(RendererType::CUDA_PATH_TRACER, width, height);
+		Controller &control = *renderer->getController();
+		control.drawBackground = true;
+		irt::ImageIL img(width, height, 4);
+		renderer->render(&img);
+		img.writeToFile("result.png");
+		renderer->doneRenderer();
+	}
+
+ 3. Compile and run. The rendering result will be given in "result.png" file.
+
+
+[Short SDK description]
+
+ - OpenIRT::getSingletonPtr()
+  * Get a singleton pointer as a handler of OpenIRT.
+ - OpenIRT::pushCamera(...)
+  * Push a camera information to OpenIRT. The camera information can be given by ether irt::Camera * or OpenGL style (gluLookat/gluPerspective) parameters.
+ - OpenIRT::loadScene(...)
+  * Load a scene into OpenIRT. The scene can be given by ether irt::Scene * or file name.
+  * See "Scene setup" section for more details.
+ - OpenIRT::init(...)
+  * Initialize OpenIRT with renderer type and screen size. If your project has any rendering context, 
+    give the context to OpenIRT via this function so the results can be directly displayed to your rendering context 
+    (See SampleMFC project if you use VS2010). If you don¡¯t provide any rendering context, OpenIRT will create an invisible context and perform off-screen rendering.
+ - OpenIRT::getController()
+  * Get the pointer of the controller for rendering. User can set some detain parameters by using the controller.
+ - OpenIRT::resized(...)
+  * Resize rendering resolution.
+ - OpenIRT::render(...)
+  * Render the scene using configured renderer. If an irt::Image instance is given, the result will be saved to the instance.
+  * This function's behavior varies depending on renderer type.
+   - Renderers except T-ReX: Render one complete image frame (CIF, with X height). In cases of path tracing and photon mapping, only one sample per pixel is traced.
+   - T-ReX(RendererType::TREX): 
+      A separated rendering thread will be launched after first call. The rendering result will be refined as time goes on. 
+      If you want to get current result at a certain time, call OpenIRT::flushImage(...).
+   - Path tracing(RendererType::CUDA_PATH_TRACER), and photon mapping(RendererType::CUDA_PHOTON_MAPPING): 
+      Samples are randomized based on given seed which is a parameter of render(...). If the seed is not specified, an automatic increasing seed will be used. 
+      When the function render(...) is called multiple times and the scene and the camera were not changed during the calls, the results will be accumulated.
+ - OpenIRT::clearResult()
+  * Clear internal rendering result. It may be used to clear accumulated rendering results.
+ - OpenIRT::flushImage()
+  * Get current internal rendering result.
+ - OpenIRT::doneRenderer()
+  * Destroy OpenIRT
+
+
+[Scene setup]
+A scene can be defined either by using "XML" file (.scene) or in source code.
+
+(1) Using "XML" file
+There are some reserved keywords (_scene, _scene_graph, etc) which have underline ("_") prefix. 
+User can define other keywords which are not started with the underline. To see how to make the "XML" file, refer "media\sponza.scene".
+
+- Reserved keywords
+  * _scene : The scene description should be started with <_scene> and ended with </_scene>.
+  * _emitters : Contains emitter description nodes. Multiple emitters (up to 16) for a scene are supported by using numbers of emitter description nodes.
+   - <[user_defined_name] type="...">...</[user_defined_name]>
+   - Type can be "PointLight", "ParallelogramLight", and "EnvironmentLight"
+  * _scene_graph : Contains scene graph nodes. Each node should have only one model. Multiple models (up to 64) for a scene are supported by using different scene graph nodes.
+   - <[user_defined_name]>...</[user_defined_name]>
+   - Supports hierarchical representation
+  * _ASVO : Contains ASVO description nodes.
+  * _model_file : Description of model file.
+   - <_model_file value="sponza.obj.ooc"/> or
+   - <_model_file value="sponza.obj.ooc"/ type="hccmesh"> or
+   - <_model_file value="sponza.obj"/>
+  * _ambient_color : Description of ambient color. Used for emitters.
+   - <_ambient_color R="1.0" G="1.0" B="1.0"/>
+  * _diffuse_color : Description of diffuse color. Used for emitters.
+   - <_diffuse_color R="1.0" G="1.0" B="1.0"/>
+  * _specular_color : Description of specular color. Used for emitters.
+   - <_specular_color R="1.0" G="1.0" B="1.0"/>
+  * _position : Description of position. User for point light.
+   - <_position X="-200.0" Y="1000.0" Z="50.0"/>
+  * _corner : Description of corner position of parallelogram light.
+   - <_corner X="-200.0" Y="1000.0" Z="50.0"/>
+  * _v1 : Description of a vector of parallelogram light.
+   - <_v1 X="100.0" Y="0.0" Z="0.0"/>
+  * _v2 : Description of another vector of parallelogram light.
+   - <_v1 X="0.0" Y="0.0" Z="80.0"/>
+  * _spot_corner : Description of corner position of emitting target.
+   - <_corner X="-435.0" Y="616.0" Z="50.0"/>
+  * _ spot_v1 : Description of a vector of emitting target.
+   - <_v1 X="100.0" Y="0.0" Z="0.0"/>
+  * _ spot_v1 : Description of a vector of emitting target.
+   - <_v1 X="100.0" Y="0.0" Z="0.0"/>
+  * _number_scattering_photons : Number of photons traced from current emitter.
+   - <_number_scattering_photons value="5120000">
+  * _intensity : Intensity of each photon.
+   - <_intensity value="1000000">
+  * _texture_base_file : Base name of environment map (See Environment map section.).
+   - < _texture_base_file value="background\cloudy_noon"
+
+(2) Setup by codes
+Please refer the following example.
+
+	#include "Scene.h"
+	#include "Emitter.h"
+
+	irt::Scene *scene = new irt::Scene;
+	scene->loadOOC("..\\media\\sponza.obj.ooc");
+
+	irt::Emitter emitter;
+	emitter.setName("area_light");
+	emitter.setType("ParallelogramLight");
+	emitter.planar.corner.set(-200.0f, 1000.0f, 50.0f);
+	emitter.planar.v1.set(100.0f, 0.0f, 0.0f);
+	emitter.planar.v2.set(0.0f, 0.0f, 80.0f);
+	emitter.color_Kd.set(1.0f, 1.0f, 1.0f);
+
+	scene->pushEmitter(emitter);
+	scene->loadEnvironmentMap("..\\media\\cloudy_noon");
+	scene->generateSceneStructure();
+	renderer->loadScene(scene);
+
+
+[Environment map]
+Current version of OpenIRT supports only cube maps. Six images of same resolution are used. 
+Each file name of the images should have postfix of either "_RT.jpg", "_LF.jpg", "_UP.jpg", "_DN.jpg", "_BK.jpg", or "_FR.jpg".
+
+
+[File format]
+OpenIRT supports following file formats:
+ - PLY (polygon file format, .ply)
+ - Wavefront OBJ (.obj)
+ - HCCMesh (http://sglab.kaist.ac.kr/HCCMesh/, .hccmesh)
+ - OOC (out-of-core file format, .ooc) : Internal format for OpenIRT
+Please note that "PLY" and "OBJ" will be converted to "OOC" when the "PLY" or "OBJ" file is loaded.
+For the best performance, we recommend converting the files to "OOC" using "OpenIRT\Utils\OOCTree.exe" (See Preprocessing section) in advance, 
+and then use the converted "OOC" file for runtime rendering.
+HCCMesh file format can be generated by using "OpenIRT\Utils\PostProcesses.exe" (See Preprocessing section).
+
+
+[Preprocessing]
+All preprocessing steps can be easily done by using "EZBuilder" located at "OpenIRT\Utils\EZBuilder.exe".
+"EZBuilder" is a launcher for following components with intuitive parameter settings.
+
+(1) Build "OOC" file
+To convert "PLY" or "OBJ" to "OOC" file format, use "OpenIRT\Utils\OOCTree.exe" as following:
+
+ - OOCTree.exe [-ifmx] input_file [mtl file]
+  * -i : In-core build. Without this option, the building is performed in out-of-core mode which is much efficient for massive models. Note: The out-of-core mode does not support multiple input files.
+  * -f : Input_file is a file list. Multiple input files can be support by the file list.
+  * -m : Apply 4x4 transform matrix to each model (requires file list).
+  * -x : Assign a material index to each model.
+ - (Example1) OOCTree.exe -i sponza.obj
+ - (Example2) OOCTree.exe -ifm sponza sponza.mtl
+  * [In "sponza" file]
+  * .\sponza0.ply 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 1
+  * .\sponza1.ply 2 0 0 0 0 2 0 0 0 0 2 0 0 0 0 1
+
+Since "PLY" file format does not have standard material format, we use "MTL" file format which usually be used with "OBJ" file format together.
+To apply a material for a "PLY" file, add a comment, "comment used material = material_name". The "material_name" is a name defined in the input "MTL" file.
+Please note that a "PLY" file can have only single material by above process.
+The output (which includes several files) will be placed in a directory named "input_file.ooc".
+The original "OOC" file has unused index list (which is used to support multiple triangles for a tree node) and the representation layouts are not optimized to GPU. 
+For better performance, OpenIRT uses more efficient representation by removing the index and changing layout. This is done by using following:
+ - "OpenIRT\Utils\PostProcesses.exe input_file "REMOVE_INDEX | GPU"".
+
+(Simple example)
+ - C:\> cd OpenIRT_bin\media
+ - C:\OpenIRT_bin\media> ..\Utils\OOCTree.exe -i .\sponza_obj\sponza.obj
+ - C:\OpenIRT_bin\media> ..\Utils\PostProcesses.exe .\sponza_obj\sponza.obj "REMOVE_INDEX | GPU"
+
+(2) Build "HCCMesh", "ASVO", and other post processes
+Since T-ReX renderer requires "HCCMesh" and "ASVO", we need to perform further processing for the T-ReX renderer. These are done as following:
+ - "OpenIRT\Utils\PostProcess.exe input_file "REMOVE_INDEX | HCCMESH | ASVO | GPU" [ASVO_option_1] [ASVO_option_2] [ASVO_option_3]
+ - 2^[ASVO_option_1] = r_u (See T-ReX paper)
+ - 2^[ASVO_option_2] = r_u*r_l
+ - [ASVO_option_3] = depth of overlapped upper ASVO
+ - (Example) PostProcesses.exe sponza.obj "REMOVE_INDEX|HCCMESH|ASVO|GPU" 8 10 5
+
+
+[Acknowledgements]
+The Sponza model is courtesy of Marko Dabrovic (http://hdri.cgtechniques.com/~sponza/files/).
+OpenIRT uses DevIL (http://openil.sourceforge.net/) library for handling images.
+
+
+[Contact information]
+Tae-Joon Kim
+PhD, Department of Computer Science, KAIST
+Republic of Korea
+tjkim.kaist@gmail.com; taejoonkim@etri.re.kr 
+
+Myungbae Son
+MS student, Department of Computer Science, KAIST
+Republic of Korea
+nedsociety@gmail.com 
+

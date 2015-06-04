@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<_scene>
+  <_emitters>
+    <area_light type="ParallelogramLight">
+      <_ambient_color R="0.0" G="0.0" B="0.0"/>
+      <_diffuse_color R="2.0" G="2.0" B="2.0"/>
+      <_corner X="-200.0" Y="1000.0" Z="50" />
+      <_v1 X="100.0" Y="0.0" Z="0.0" />
+      <_v2 X="0.0" Y="0.0" Z="80.0" />
+      <_spot_corner X="-435" Y="616" Z="-102" />
+      <_spot_v1 X="870.0" Y="0.0" Z="0.0" />
+      <_spot_v2 X="0.0" Y="0.0" Z="204.0" />
+      <_number_scattering_photons value="512000" />
+      <_intensity value="5000000" />
+    </area_light>
+    <environment_light type="EnvironmentLight">
+	    <_texture_base_file value="./backgrounds/cloudy_noon"/>
+    </environment_light>
+  </_emitters>
+  <_scene_graph>
+    <sponza>
+      <_model_file value="sponza.obj.ooc" type="ooc"/>
+    </sponza>
+  </_scene_graph>
+</_scene>
