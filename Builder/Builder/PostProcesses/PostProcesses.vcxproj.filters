@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Magic">
+      <UniqueIdentifier>{a3b6b8f3-c100-4603-ab6d-b0672f6bed96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\DirectTriIndex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ExtractBB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MergeGeometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OptionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\postprocesses_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Progression.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RearrangeVoxels.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HCCMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DictionaryCompression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LoggerImplementationFileout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LogManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LoggerImplementationStdout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Voxelize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PerfectHashing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GeometryConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcAppr3DGaussPointsFit.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcBox3.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcCont3DBox.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcCont3DMinBox.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcEigen.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcMath.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcMatrix3.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcMinimize1D.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcMinimizeND.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcPlane.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcQuaternion.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Magic\MgcVector3.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\OOC_PCA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Octree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Files.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Voxel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MTLGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FileMapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\BVH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DirectTriIndex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ExtractBB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MergeGeometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RearrangeVoxels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\BitCompression.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\DictionaryCompression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HCCMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Voxelize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Voxel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\BV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\PerfectHashing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GeometryConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MagicFMLibType.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcAppr3DGaussPointsFit.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcBox3.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcCont3DBox.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcCont3DMinBox.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcEigen.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcMath.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcMatrix3.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcMinimize1D.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcMinimizeND.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcPlane.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcQuaternion.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcRTLib.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Magic\MgcVector3.h">
+      <Filter>Source Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Octree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\OOC_PCA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NewMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MTLGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FileMapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Magic\MgcBox3.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcEigen.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcMath.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcMatrix3.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcMinimize1D.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcMinimizeND.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcPlane.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+    <None Include="..\src\Magic\MgcVector3.inl">
+      <Filter>Source Files\Magic</Filter>
+    </None>
+  </ItemGroup>
+</Project>
